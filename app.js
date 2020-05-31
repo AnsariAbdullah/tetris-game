@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
 	
 	
 	// draw the Tetromino
-
 	function draw() {
     current.forEach(index => {
       squares[currentPosition + index].classList.add('tetromino')
@@ -71,6 +70,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 	// make the Tetromino move down every second 
 	timerId = setInterval(moveDown, 1000)
+
+	// assign function to keyCodes
+	function control(e) {
+		if(e.keyCode === 37){
+			moveLeft();
+		}
+	}
+
+	document.addEventListener('keyup', control);
 
 	function moveDown() {
     undraw();
@@ -100,11 +108,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 		if(!isAtLeftEdge) currentPosition -= 1;
 
-		if(current.som(index => squares[currentPosition + index].classList.contains('taken'))){
+		if(current.some(index => squares[currentPosition + index].classList.contains('taken'))){
 			currentPosition += 1;
 		}
 		draw();
-		
+
 	}
 
 })

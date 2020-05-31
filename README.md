@@ -1,7 +1,7 @@
-#Tetris game
+# Tetris game
 Tetris game made by following Ania Kubow on freeCodeCamp
 
-##Covers the following
+## Covers the following
 * addEventListener()
 * querySelector()
 * querySelectorAll()

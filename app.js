@@ -79,10 +79,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     })
   }
 
-
-	// make the Tetromino move down every second 
-	// timerId = setInterval(moveDown, 1000)
-
 	// assign function to keyCodes
 	function control(e) {
 		if(e.keyCode === 37){
@@ -126,9 +122,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 	function moveLeft() {
 		undraw();
 		const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0);
-
 		if(!isAtLeftEdge) currentPosition -= 1;
-
 		if(current.some(index => squares[currentPosition + index].classList.contains('taken'))){
 			currentPosition += 1;
 		}
@@ -139,9 +133,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 	function moveRight(){
 		undraw();
 		const isAtRightEdge = current.some(index => (currentPosition + index) % width === width - 1);
-
 		if(!isAtRightEdge) currentPosition += 1;
-
 		if(current.some(index => squares[currentPosition + index].classList.contains('taken'))){
 			currentPosition -= 1;
 		}
@@ -228,5 +220,4 @@ document.addEventListener('DOMContentLoaded', ()=>{
 			clearInterval(timerId);
 		}
 	}
-
 })
